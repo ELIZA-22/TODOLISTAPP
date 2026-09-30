@@ -5,7 +5,31 @@ import TodoList from './components/TodoList'
 import NotesView from './components/NotesView'
 import './App.css'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/todos'
+const API_URL = '/api/todos'  // Same domain, relative path
+
+// Mock data for demo purposes when backend is not available
+const MOCK_TODOS = [
+  {
+    id: '1',
+    title: 'Welcome to your Todo App! 🎉',
+    description: 'This is a demo todo. Try creating your own!',
+    completed: false,
+    position: 0,
+    priority: 'high',
+    notes: 'This app features drag & drop, priorities, and notes!',
+    created_at: new Date().toISOString()
+  },
+  {
+    id: '2', 
+    title: 'Features you can try:',
+    description: 'Drag todos around, set priorities, add notes',
+    completed: false,
+    position: 1,
+    priority: 'medium',
+    notes: '• Drag & drop reordering\n• Priority levels\n• Notes on each todo\n• Separate Notes tab',
+    created_at: new Date().toISOString()
+  }
+]
 
 function App() {
   const [todos, setTodos] = useState([])

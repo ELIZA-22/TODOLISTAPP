@@ -6,6 +6,7 @@ from datetime import datetime
 from sqlalchemy.orm import Session
 from contextlib import asynccontextmanager
 import uuid
+import os
 
 from database import get_db, init_db, TodoDB, NoteDB
 
@@ -17,12 +18,13 @@ async def lifespan(app: FastAPI):
     yield
     # Shutdown (cleanup if needed)
 
+# Create FastAPI app - compatible with Vercel
 app = FastAPI(title="Todo List API", lifespan=lifespan)
 
-# Configure CORS
+# Configure CORS - allow all origins for Vercel deployment
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:5173", "https://*.vercel.app"],
+    allow_origins=["*"],  # Allow all origins for Vercel
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -288,3 +290,6 @@ def delete_note(note_id: str, db: Session = Depends(get_db)):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
+# Vercel handler
+handler = app

@@ -2,7 +2,18 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './NotesView.css'
 
-const NOTES_API_URL = import.meta.env.VITE_API_URL ? `${import.meta.env.VITE_API_URL.replace('/todos', '')}/notes` : 'http://localhost:8000/api/notes'
+const NOTES_API_URL = '/api/notes'  // Same domain, relative path
+
+// Mock notes for demo
+const MOCK_NOTES = [
+  {
+    id: '1',
+    title: 'Welcome to Notes! 📝',
+    content: 'This is your personal notes space.\n\nYou can:\n• Write meeting notes\n• Jot down ideas\n• Keep reminders\n• Track thoughts\n\nTry creating a new note by clicking the "+ New" button!',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString()
+  }
+]
 
 function NotesView() {
   const [notes, setNotes] = useState([])
