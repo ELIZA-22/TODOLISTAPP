@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './NotesView.css'
 
-const NOTES_API_URL = '/api/notes'  // Same domain, relative path
+const NOTES_API_URL = 'http://localhost:8000/api/notes'  // Local backend
 
 // Mock notes for demo
 const MOCK_NOTES = [

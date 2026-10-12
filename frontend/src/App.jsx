@@ -5,7 +5,7 @@ import TodoList from './components/TodoList'
 import NotesView from './components/NotesView'
 import './App.css'
 
-const API_URL = '/api/todos'  // Same domain, relative path
+const API_URL = 'http://localhost:8000/api/todos'  // Local backend
 
 // Mock data for demo purposes when backend is not available
 const MOCK_TODOS = [
