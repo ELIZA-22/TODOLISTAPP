@@ -55,8 +55,7 @@ class NoteUpdate(BaseModel):
     content: Optional[str] = None
 
 class Note(BaseModel):
-    class Config:
-        orm_mode = True
+    model_config = {"from_attributes": True}
     
     id: str
     title: str
@@ -65,8 +64,7 @@ class Note(BaseModel):
     updated_at: str
 
 class Todo(BaseModel):
-    class Config:
-        orm_mode = True
+    model_config = {"from_attributes": True}
     
     id: str
     title: str
