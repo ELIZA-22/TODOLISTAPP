@@ -5,7 +5,7 @@ import TodoList from './components/TodoList'
 import NotesView from './components/NotesView'
 import './App.css'
 
-const API_URL = 'http://localhost:8000/api/todos'  // Local backend
+const API_URL = 'https://todo-backend3-qf1a.onrender.com/api/todos'  // Deployed backend
 
 // Mock data for demo purposes when backend is not available
 const MOCK_TODOS = [

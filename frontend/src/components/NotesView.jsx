@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './NotesView.css'
 
-const NOTES_API_URL = 'http://localhost:8000/api/notes'  // Local backend
+const NOTES_API_URL = 'https://todo-backend3-qf1a.onrender.com/api/notes'  // Deployed backend
 
 // Mock notes for demo
 const MOCK_NOTES = [
