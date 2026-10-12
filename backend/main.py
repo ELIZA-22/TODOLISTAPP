@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel
 from typing import List, Optional
 from datetime import datetime
 from sqlalchemy.orm import Session
@@ -55,7 +55,8 @@ class NoteUpdate(BaseModel):
     content: Optional[str] = None
 
 class Note(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
+    class Config:
+        orm_mode = True
     
     id: str
     title: str
@@ -64,7 +65,8 @@ class Note(BaseModel):
     updated_at: str
 
 class Todo(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
+    class Config:
+        orm_mode = True
     
     id: str
     title: str
